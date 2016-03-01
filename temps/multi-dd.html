@@ -1,46 +1,74 @@
-<div class="btn-group">
+<div class="multi-dd">
 
-  <button type="button" class="btn btn-default dropdown-toggle"
-          (click)="toggleSelect()">
+  <button (click)="isOpenToggle()" type="button"
+          class="btn btn-default dropdown-toggle">
 
-    {{multiselectHeader}}
+    {{hCapture + ' (' + hLength + ')'}}
 
     <span class="caret"></span>
 
   </button>
 
-  <div class="dropdown-menu" [ngStyle]="{'display': toggleSelectState}">
+  <div [ngStyle]="{'display': isOpen}" class="dropdown-menu">
+
     <div class="dropdown-header">
 
-      <div *ngIf="filter">
-        <input [(ngModel)]="filterModel"  class="form-control input-sm"
-               type="text"  autofocus="autofocus" placeholder="Filter" />
-      </div>
-      
-      <div *ngIf="multi">
-        <button (click)="checkAll()" class="btn btn-link btn-xs"
-                type="button">
-          <i class="glyphicon glyphicon-ok"></i> Alle
-        </button>
+      <div class="filt-con-row">
+
+        <div *ngIf="filter" class="left">
+
+          <input [(ngModel)]="search"
+                 class="form-control" type="text"
+                 autofocus="autofocus" placeholder="Filter"/>
+
+        </div>
         
-        <button (click)="unCheckAll()" class="btn btn-link btn-xs"
-                type="button">
-          <i class="glyphicon glyphicon-remove"></i> Keine
-        </button>
+        <div *ngIf="multi && controls"
+             class="btn-group right">
+
+          <button (click)="checkAll()"
+                  class="btn btn-default"
+                  type="button">
+
+            <i class="fa fa-check text-success"></i>
+
+          </button>
+
+          <button (click)="unCheckAll()"
+                  class="btn btn-default"
+                  type="button">
+
+            <i class="fa fa-square-o text-danger"></i>
+
+          </button>
+
+        </div>
+
+        <div class="clearfix"></div>
+
       </div>
 
     </div>
 
-    <ul>
-      <li *ngFor="#item of coll | searchText: filterModel: label">
+    <ul class="items-list">
 
-        <a class="checked" (click)="selectItem(item)">
-          <i class="glyphicon" ></i>
-          {{item[label]}}
+      <li *ngFor="#item of coll | searchPipe: search: label">
+
+        <a [ngSwitch]="isSelected(item, key)" (click)="itemToggle(item)">
+
+          <i *ngSwitchWhen="true" class="fa fa-check"></i>
+
+          <i *ngSwitchWhen="false" class="fa fa-square-o"></i>
+
+          {{item[key]}}
+          <!-- {{item[label]}} -->
+          
         </a>
 
       </li>
+
     </ul>
 
   </div>
+
 </div>

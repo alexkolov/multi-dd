@@ -1,0 +1,47 @@
+.multi-dd {
+  min-width: 100px;
+}
+
+.dropdown-menu {
+  max-height: 300px;
+  min-width: 300px;
+  overflow-y: auto;  
+}
+
+.dropdown-header {
+  padding: 0px 5px;
+}
+
+.filt-con-row {
+  width: 100%;
+}
+
+.filt-con-row .left {
+  width: 70%;
+  float: left;
+}
+
+.filt-con-row .right {
+  padding-left: 2%;
+  width: 30%;
+}
+
+.filt-con-row button {
+  width: 49%;
+}
+
+.items-list {
+  margin-top: 10px;
+  padding: 0px 10px;
+  list-style-type: none;
+}
+
+.items-list li {
+  cursor: pointer;
+}
+
+.items-list .fa {
+  margin-right: 2px;
+  width: 1em;
+  height: 1em;
+}

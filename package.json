@@ -1,0 +1,15 @@
+{
+  "name": "ng2-multi-dd",
+  "version": "0.0.1",
+  "description": "Multiselect component for Angular 2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexkolov/ng2-multi-dd.git"
+  },
+  "author": "kolov.alex@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexkolov/ng2-multi-dd/issues"
+  },
+  "homepage": "https://github.com/alexkolov/ng2-multi-dd#readme"
+}

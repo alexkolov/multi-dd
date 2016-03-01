@@ -1,4 +1,4 @@
 # multi-dd
-Multiselect for Angular 2
+Multiselect component for Angular 2
 
 Work in progress

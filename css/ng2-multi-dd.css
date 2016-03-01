@@ -1,5 +1,13 @@
-.multi-dd {
+ng2-multi-dd {
   min-width: 100px;
+  position: "absolute"
+  z-index: 2000
+}
+
+.inner {
+  min-width: 100px;
+  position: absolute;
+  z-index: 2000;
 }
 
 .dropdown-menu {

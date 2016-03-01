@@ -28,14 +28,14 @@ class SearchTextPipe implements PipeTransform{
 }
 
 @Component({
-    selector: 'multi-dd',
+    selector: 'ng2-multi-dd',
     pipes: [SearchTextPipe],
-    templateUrl: './temps/multi-dd.html',
-    styleUrls: ['./css/multi-dd.css'],
+    templateUrl: './temps/ng2-multi-dd.html',
+    styleUrls: ['./css/ng2-multi-dd.css'],
     derectives: [NgIf, NgSwitch, NgSwitchWhen]
 })
 
-export class MultiDd {
+export class Ng2MultiDd {
     isOpen: string = 'none';
     hLength: number = 0;
     @Input('header') hCapture: string;

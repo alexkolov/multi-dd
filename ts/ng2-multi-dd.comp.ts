@@ -170,7 +170,7 @@ export class Ng2MultiDd {
             let pre = onSelect.previousValue;
             if(!this.arraysIdentical(cur, pre)
                && this.isArray(pre)) {
-                this.onSelect.next(this.selected);
+                this.onSelect.next([cur, pre]);
 
             }
         }

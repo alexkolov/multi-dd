@@ -46,8 +46,19 @@ export class Ng2MultiDd {
     @Input('key') key: any;
     @Input('label') label: string;
     @Input('selected') selected: any;
+    @Output() onSelect = new EventEmitter();
     @Output() selectedChange = new EventEmitter();
 
+    isArray(a) {
+        a = Object.prototype.toString.call(a)
+        if(a === '[object Array]') {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
     headerUpdate() {
         this.hLength = this.selected.length;
         this.selectedChange.next(this.selected);
@@ -138,9 +149,30 @@ export class Ng2MultiDd {
         }
     }
 
+    arraysIdentical(a, b) {
+        var i = a.length;
+        if (i != b.length) return false;
+        while (i--) {
+            if (a[i] !== b[i]) return false;
+        }
+        return true;
+    };
+
     ngOnChanges(changes: {[coll: string]: SimpleChange}) {
         if(changes['coll']) {
             this.modelUpdate();
+        }
+
+        let onSelect = changes['selected'];
+
+        if(onSelect) {
+            let cur = onSelect.currentValue;
+            let pre = onSelect.previousValue;
+            if(!this.arraysIdentical(cur, pre)
+               && this.isArray(pre)) {
+                this.onSelect.next(this.selected);
+
+            }
         }
     }
 
